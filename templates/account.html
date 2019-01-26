@@ -1,0 +1,52 @@
+<style>
+  .card{
+    margin:0 auto;
+    float:none;
+    margin-bottom:10px;
+  }
+  .accountImage{
+    margin:0 auto ;
+  }
+  .userName{
+    font-family:Sofia;
+    font-size:50px;
+  }
+  .emailID{
+    font-family:Sofia;
+    font-size:30px;
+  }
+  #btnSearch, #btnClear{
+    display: inline-block;
+    vertical-align: top;
+  }
+</style>
+{% extends 'extend.html' %}
+{% block body %}
+<div class="container">
+  <div class="card" style="width:500px;">
+    <img class="img-circle img-responsive accountImage" height="200px" width="200px" src="static/Offer1.jpg" alt="Card Image">
+    <div class="card-body bg-success">
+      <h1 class="card-title text-center userName">{{ current_user.firstName+current_user.lastName }}</h1>
+      <p class="card-text text-center emailID">{{ current_user.emailAddress }}</p>
+      <div style="margin-top:25px;">
+        <div class="form-group" >
+          <p class="text-center emailID">New Username</p>
+          <input type="text" class="form-control accountImage" placeholder="Username" style="width:350px;">
+        </div>
+        <div class="form-group">
+          <p class="text-center emailID">New Email Address</p>
+          <input type="email" class="form-control accountImage" placeholder="Email Address" style="Width:350px;">
+        </div>
+      </div>
+      <div>
+        <div class="row">
+          <div class="col-sm-12 text-center">
+            <button id="btnSearch" class="btn btn-primary btn-md center-block" Style="width: 100px;">Update </button>
+            <button id="btnClear" class="btn btn-danger btn-md center-block" Style="width: 200px">Change Password</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
