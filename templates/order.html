@@ -1,0 +1,498 @@
+<style>
+    .img_size{
+        height:120px;
+        width:120px;
+    }
+    h3{
+        color:white;
+    }
+    .backgrounds{background-color:black;width:100%;margin-top:-20px;}
+    #nonVeg_back{
+        background-size:cover;
+        background: url("/static/Pics/nonveg.jpg") fixed;
+        height:30%;
+        width:100%;
+    }
+    #break_drink_back{
+        background-size:cover;
+        background: url("/static/Pics/drink_background.jpg") fixed;
+        height:30%;
+        width:100%;
+    }
+    .nonVeg_text, .drink_text{
+        font-family:Creepster;
+        font-size:90px;
+        color:green;
+        margin-top:30px;
+    }
+</style>
+{% extends 'extend.html'%}
+{% block body %}
+    <div class="fluid-container">
+        <!--Food Menu Starts-->
+        <div class="fluid-container backgrounds">
+            <ul class="nav nav-tabs nav-justified" style="margin-top:20px;">
+                <div class="container-fluid" style="min-height:10%; width:80%">
+                    {% with messages = get_flashed_messages() %}
+                        <!--{% if messages %}-->
+                            {% for message in messages %}
+                                <div class="alert alert-warning alert-dismissible" role="alert">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        <!--{% endif %}-->
+                    {% endwith %}
+                </div>
+                <li class="active"><a data-toggle="tab" class ="text-center" href="#breakfast">Breakfast</a></li>
+                <li><a data-toggle="tab" class="text-center" href="#lunch">Lunch</a></li>
+                <li><a data-toggle="tab" class="text-center" href="#dinner">Dinner</a></li>
+            </ul>
+            <div class="tab-content">
+                <div id="breakfast" class="tab-pane fade in active">
+                    <form action="http://localhost:5000/foodData" method="POST">
+                        <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/semiya upma.jpg" class="img-circle img_size" alt="semiya upma">
+                                <h3>Semiya Upma</h3>
+                                <button type="submit" name="foods" value="Semiya Upma"  class="btn btn-primary btn-md"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/steamed dhokla.jpg" class="img-circle img_size" alt="steamed dosa">
+                                <h3>Steamed Dokhla</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Steamed Dokhla"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/aloo paratha.jpg" class="img-circle img_size" alt="aloo paratha">
+                                <h3>Aloo Paratha</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Aloo Paratha"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/onion paratha.jpg" class="img-circle img_size" alt="onion paratha">
+                                <h3>Onion Paratha</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Onion Paratha"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                        </div>
+                        <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/sabudana vada.jpg" class="img-circle img_size" alt="sabudana vada" >
+                                <h3>Sabudana Vada</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Sabudana Vada"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/rajmah masala.jpg" class="img-circle img_size" alt="Rajmah Masala" >
+                                <h3>rajmah Masala</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Rajmah mmasala">
+                                    <span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/grilled sandwich.jpg" class="img-circle img_size" alt="grilled sandwich" >
+                                <h3>Grilled Sandwich</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Grilled Sandwich"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/paneer toast.jpg" class="img-circle img_size" alt="Paneer Toast" >
+                                <h3>Paneer Toast</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Paneer Toast"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div id="nonVeg_back">
+                                <div data-aos="zoom-in" data-aos-duration="3000"><p class=" nonVeg_text text-center">Non-Veg</p></div>
+                            </div>
+                        </div>
+                        <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/grilled chicken.jpg" class="img-circle img_size" alt="grilled chicken" >
+                                <h3>Grilled Chicken</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Grilled Chicken"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/mutton korma.jpg" class="img-circle img_size" alt="mutton korma" >
+                                <h3>Mutton Korma</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Mutton Korma"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/tandoori chops.jpg" class="img-circle img_size" alt="tandoori chops" >
+                                <h3>Tandoori Chops</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Tandoori Chops"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/prawns curry.jpg" class="img-circle img_size" alt="Prawns Curry" >
+                                <h3>Prawns Curry</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Prawns Curry"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                        </div>
+                        <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/keema samosa.jpg" class="img-circle img_size" alt="keema samosa">
+                                <h3>Keema Samosa</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Keema Samosa"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/chicken gravy.jpg" class="img-circle img_size" alt="chicken gravy">
+                                <h3>Chicken Gravy</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Chicken Gravy"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/chicken shawarma.jpg" class="img-circle img_size" alt="Chicken Shawarma">
+                                <h3>Chicken Shawarma</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Chicken Shawarma"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/chicken biryani.jpg" class="img-circle img_size" alt="chicken biryani">
+                                <h3>Chicken Biryani</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Chicken Biryani"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div id="break_drink_back">
+                                <div data-aos="zoom-in" data-aos-duration="3000"><p class="drink_text text-center">Drinks</p></div>
+                            </div>
+                        </div>
+                        <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/himalayan tea.jpg" class="img-circle img_size" alt="himalayan tea" >
+                                <h3>Himalayan Tea</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Himalayan Tea"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/strawberry shake.jpg" class="img-circle img_size" alt="Strawberry Shake">
+                                <h3>Strawberry Shake</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Strawberry Shake"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/mango lassi.jpg" class="img-circle img_size" alt="mango lassi" >
+                                <h3>Mango Lassi</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Mango Lassi"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/chai tea latti.jpg" class="img-circle img_size" alt="chai tea" >
+                                <h3>Chai Tea Latti</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Chai Tea Latti"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                        </div>
+                        <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/mint lassi.jpg" class="img-circle img_size" alt="mint lassi" >
+                                <h3>Mint Lassi</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Mint Lassi"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/masala tea.jpg" class="img-circle img_size" alt="masala tea" >
+                                <h3>Masala Tea</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Masala Tea"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/black tea.jpg" class="img-circle img_size" alt="black tea" >
+                                <h3>Black Tea</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Black Tea"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/yellow tea.jpg" class="img-circle img_size" alt="Yellow Tea" >
+                                <h3>Yellow Tea</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Yellow Tea"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div id="lunch" class="tab-pane fade">
+                    <form action="http://localhost:5000/foodData" method="POST">
+                        <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/chana masala.jpg" class="img-circle img_size" alt="chana masala" >
+                                <h3>Chana Masala</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Chana Masala"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/methi chhole.jpg" class="img-circle img_size" alt="methi chhole" >
+                                <h3>Methi Chhole</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Methi Chhole"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/vegetable biryani.jpg" class="img-circle img_size" alt="vegetable biryani" >
+                                <h3>Vegetable Biryani</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Rava Dosa"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/mixed vegetable.jpg" class="img-circle img_size" alt="mixed vegetable" >
+                                <h3>Mixed Vegetable</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Mixed Vegetable"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                        </div>
+                        <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/black chana.jpg" class="img-circle img_size" alt="black chana">
+                                <h3>Black Chana</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Rava Dosa"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/indian dahl.jpg" class="img-circle img_size" alt="Indian dahl" >
+                                <h3>Indian Dahl</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Indian Dahl"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/aloo gobhi.jpg" class="img-circle img_size" alt="aloo gobhi" >
+                                <h3>Aloo Gobhi</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Aloo Gobhi"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/moong dal.jpg" class="img-circle img_size" alt="Moong dal" >
+                                <h3>Moong Dal</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Moong Dal"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div id="nonVeg_back">
+                                <div data-aos="zoom-in" data-aos-duration="3000"><p class=" nonVeg_text text-center">Non-Veg</p></div>
+                            </div>
+                        </div>
+                        <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/prawns kuzhambu.jpg" class="img-circle img_size" alt="Prawns Kuzhambu">
+                                <h3>Prawns Kuzhambu</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Prawns Kuzhambu"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/pomfret fish.jpg" class="img-circle img_size" alt="pomfret fish" >
+                                <h3>Pomfret Fish</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Pomfret Fish"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/payyoli chicken.jpg" class="img-circle img_size" alt="Payyoli Chicken" >
+                                <h3>Payyoli Chicken</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Payyoli Chicken"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/Mini Chicken.jpg" class="img-circle img_size" alt="Mini Chicken" >
+                                <h3>Mini Chicken</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Mini Chicken"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                        </div>
+                        <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/dum chicken.jpg" class="img-circle img_size" alt="dum chicken" >
+                                <h3>Dum Chicken</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Dum Chicken"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/chicken pancake.jpg" class="img-circle img_size" alt="Chicken pancake">
+                                <h3>Chicken Pancake</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Chicken Pancake"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/mutton champ.jpg" class="img-circle img_size" alt="mutton champ">
+                                <h3>Mutton Champ</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Mutton Champ"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/tandoori chicken.jpg" class="img-circle img_size" alt="tandoori chicken" >
+                                <h3>Tandoori Chicken</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Tandoori Chicken"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div id="break_drink_back">
+                                <div data-aos="zoom-in" data-aos-duration="3000"><p class="drink_text text-center">Drinks</p></div>
+                            </div>
+                        </div>
+                        <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/caramel lassi.png" class="img-circle img_size" alt="caramel lassi" >
+                                <h3>Caramel Lassi</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Caramel Lassi"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/nannari sherbet.jpg" class="img-circle img_size" alt="nannari sherbet">
+                                <h3>Nannari Sherbet</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Nannari Sherbet"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/banana lassi.jpg" class="img-circle img_size" alt="banana lassi">
+                                <h3>Banana Lassi</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Banana Lassi"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/coffee masala.jpg" class="img-circle img_size" alt="coffee masala" >
+                                <h3>Coffee Masala</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Coffee Masala"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                        </div>
+                        <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/chocolate chai.jpg" class="img-circle img_size" alt="chocolate chai" >
+                                <h3>Chocolate Chai</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Chocolate Chai"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/spicy lemonade.jpg" class="img-circle img_size" alt="spicy lemonade" >
+                                <h3>Spicy Lemonade</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Spicy Lemonade"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/vasantha neer.jpg" class="img-circle img_size" alt="Vasantha Neer">
+                                <h3>Vasantha Neer</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Vasantha Neer"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                            <div class="w3-quarter">
+                                <img src="/static/Pics/tumeric milk.jpg" class="img-circle img_size" alt="tumeric milk">
+                                <h3>Turmeric Milk</h3>
+                                <button type="submit" name="foods" class="btn btn-primary btn-md" value="Tumeric Milk"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div id="dinner" class="tab-pane fade">
+                    <form action="http://localhostL:5000/foodData" method="POST">
+                        <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+                            +<div class="w3-quarter">
+                            <img src="/static/Pics/matar paneer.jpg" class="img-circle img_size" alt="matar paneer" >
+                            <h3>Matar Paneer</h3>
+                            <button type="submit" name="foods" class="btn btn-primary btn-md" value="Matar Paneer"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                        </div>
+                        <div class="w3-quarter">
+                            <img src="/static/Pics/bhindi masala.jpg" class="img-circle img_size" alt="bhindi masala">
+                            <h3>Bhindi Masala</h3>
+                            <button type="submit" name="foods" class="btn btn-primary btn-md" value="Bhindi Masala"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                        </div>
+                        <div class="w3-quarter">
+                            <img src="/static/Pics/vegetable bhaji.jpg" class="img-circle img_size" alt="Vegetable Bhaji">
+                            <h3>Vegetable Bhaji</h3>
+                            <button type="submit" name="foods" class="btn btn-primary btn-md" value="Vegetable Bhaji"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                        </div>
+                        <div class="w3-quarter">
+                            <img src="/static/Pics/navratan korma.jpg" class="img-circle img_size" alt="Navratan Korma">
+                            <h3>Navratan Korma</h3>
+                            <button type="submit" name="foods" class="btn btn-primary btn-md" value="Navratan Korma"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                        </div>
+                    </div>
+                        <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+                        <div class="w3-quarter">
+                            <img src="/static/Pics/dal methi.jpg" class="img-circle img_size" alt="Dal Methi">
+                            <h3>Dal Methi</h3>
+                            <button type="submit" name="foods" class="btn btn-primary btn-md" value="Dal Methi"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                        </div>
+                        <div class="w3-quarter">
+                            <img src="/static/Pics/tomato rice.jpg" class="img-circle img_size" alt="tomato rice" >
+                            <h3>Tomato Rice</h3>
+                            <button type="submit" name="foods" class="btn btn-primary btn-md" value="Tomato Rice"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                        </div>
+                        <div class="w3-quarter">
+                            <img src="/static/Pics/moong dal.jpg" class="img-circle img_size" alt="moong dal" >
+                            <h3>Moong Dal</h3>
+                            <button type="submit" name="foods" class="btn btn-primary btn-md" value="Moong Dal"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                        </div>
+                        <div class="w3-quarter">
+                            <img src="/static/Pics/lemon rice.jpg" class="img-circle img_size" alt="Lemon Rice" >
+                            <h3>Lemon Rice</h3>
+                            <button type="submit" name="foods" class="btn btn-primary btn-md" value="Lemon Rice"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                        </div>
+                    </div>
+                        <div class="container">
+                        <div id="nonVeg_back">
+                            <div data-aos="zoom-in" data-aos-duration="3000"><p class=" nonVeg_text text-center">Non-Veg</p></div>
+                        </div>
+                    </div>
+                        <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+                        <div class="w3-quarter">
+                            <img src="/static/Pics/mutton rezala.jpg" class="img-circle img_size" alt="mutton rezala" >
+                            <h3>Mutton Rezala</h3>
+                            <button type="submit" name="foods" class="btn btn-primary btn-md" value="Mutton Rezala"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                        </div>
+                        <div class="w3-quarter">
+                            <img src="/static/Pics/chicken sukha.jpg" class="img-circle img_size" alt="chicken sukha" >
+                            <h3>Chicken Sukha</h3>
+                            <button type="submit" name="foods" class="btn btn-primary btn-md" value="Chicken Sukha"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                        </div>
+                        <div class="w3-quarter">
+                            <img src="/static/Pics/murgh ajmeri.jpg" class="img-circle img_size" alt="Murgh Ajmeri" >
+                            <h3>Murgh Ajmeri</h3>
+                            <button type="submit" name="foods" class="btn btn-primary btn-md" value="Murgh Ajmeri"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                        </div>
+                        <div class="w3-quarter">
+                            <img src="/static/Pics/mutton curry.jpg" class="img-circle img_size" alt="mutton curry" >
+                            <h3>Mutton Curry</h3>
+                            <button type="submit" name="foods" class="btn btn-primary btn-md" value="Mutton Curry"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                        </div>
+                    </div>
+                        <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+                        <div class="w3-quarter">
+                            <img src="/static/Pics/fried prawns.jpg" class="img-circle img_size" alt="fried prawns" >
+                            <h3>Fried Prawns</h3>
+                            <button type="submit" name="foods" class="btn btn-primary btn-md" value="Fried Prawns"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                        </div>
+                        <div class="w3-quarter">
+                            <img src="/static/Pics/chicken curry.jpg" class="img-circle img_size" alt="chicken curry" >
+                            <h3>Chicken Curry</h3>
+                            <button type="submit" name="foods" class="btn btn-primary btn-md" value="Chicken Curry"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                        </div>
+                        <div class="w3-quarter">
+                            <img src="/static/Pics/badshahi chicken.jpg" class="img-circle img_size" alt="Badshahi Chicken" >
+                            <h3>Badshahi Chicken</h3>
+                            <button type="submit" name="foods" class="btn btn-primary btn-md" value="Badshahi Chicken"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                        </div>
+                        <div class="w3-quarter">
+                            <img src="/static/Pics/chicken kofta.jpg" class="img-circle img_size" alt="chicken kofta" >
+                            <h3>Chicken Kofta</h3>
+                            <button type="submit" name="foods" class="btn btn-primary btn-md" value="Chicken Kofta"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                        </div>
+                    </div>
+                        <div class="container">
+                        <div id="break_drink_back">
+                            <div data-aos="zoom-in" data-aos-duration="3000"><p class="drink_text text-center">Drinks</p></div>
+                        </div>
+                    </div>
+                        <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+                        <div class="w3-quarter">
+                            <img src="/static/Pics/masala soda.jpg" class="img-circle img_size" alt="masala soda">
+                            <h3>Masala Soda</h3>
+                            <button type="submit" name="foods" class="btn btn-primary btn-md" value="Masala Chicken"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                        </div>
+                        <div class="w3-quarter">
+                            <img src="/static/Pics/jaggery coffee.jpg" class="img-circle img_size" alt="jaggery coffee">
+                            <h3>Jaggery Coffee</h3>
+                            <button type="submit" name="foods" class="btn btn-primary btn-md" value="Jaggery Coffee"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                        </div>
+                        <div class="w3-quarter">
+                            <img src="/static/Pics/badam sharbat.jpeg" class="img-circle img_size" alt="badam sharbat">
+                            <h3>Badam Sharbat</h3>
+                            <button type="submit" name="foods" class="btn btn-primary btn-md" value="Badam Sharbats"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                        </div>
+                        <div class="w3-quarter">
+                            <img src="/static/Pics/kesar doodh.jpg" class="img-circle img_size" alt="kesar doodh" >
+                            <h3>Kesar Doodh</h3>
+                            <button type="submit" name="foods" class="btn btn-primary btn-md" value="Kesar Doodh"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                        </div>
+                    </div>
+                        <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+                        <div class="w3-quarter">
+                            <img src="/static/Pics/plum panna.jpg" class="img-circle img_size" alt="Plum panna" >
+                            <h3>Plum Panna</h3>
+                            <button type="submit" name="foods" class="btn btn-primary btn-md" value="Plum Pana"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                        </div>
+                        <div class="w3-quarter">
+                            <img src="/static/Pics/peach lassi.jpg" class="img-circle img_size" alt="Peach lassi" >
+                            <h3>Peach Lassi</h3>
+                            <button type="submit" name="foods" class="btn btn-primary btn-md" value="Peach Lassi"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                        </div>
+                        <div class="w3-quarter">
+                            <img src="/static/Pics/aam panna.jpg" class="img-circle img_size" alt="Aam Panna" >
+                            <h3>Aam Panna</h3>
+                            <button type="submit" name="foods" class="btn btn-primary btn-md" value="Aam Panna"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                        </div>
+                        <div class="w3-quarter">
+                            <img src="/static/Pics/apple juice.jpg" class="img-circle img_size" alt="Apple juice" >
+                            <h3>Apple Juice</h3>
+                            <button type="submit" name="foods" class="btn btn-primary btn-md" value="Apple Juice"><span><i class="fa fa-shopping-cart"></i> Rs.100</span></button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script src="{{ url_for('static',filename='JS/mainJS.js') }}"></script>
+{% endblock %}
