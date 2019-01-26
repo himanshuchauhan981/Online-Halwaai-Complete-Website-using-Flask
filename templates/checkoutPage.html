@@ -1,0 +1,91 @@
+<style>
+  .cart_text{
+    text-align:center;
+    color:red;
+    font-family:'Aclonica';
+    font-size:122px;
+  }
+  .bt{
+    text-align:center;
+  }
+  body{
+    background-image: url({{ url_for('static', filename='another_background.jpg') }});
+    background-repeat: no-repeat;
+  }
+</style>
+{% extends 'extend.html' %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+{% block body %}
+{% if not length %}
+  <p class="cart_text">Empty Cart</p>
+  <div class="bt">
+    <form action="http://localhost:5000/order_online_halwaai" method="POST">
+      <button class="btn btn-success button btn-lg" type="submit">Back to Menu</button>
+    </form>
+  </div>
+{% else %}
+  <table class="table table-dark">
+    <tr>
+        <td scope="col" align="center"><b>Food Item</b></td>
+        <td scope="col" align="center"><b>Food Price</b></td>
+        <td scope="col" align="center"><b>Food Quantity</b></td>
+        <td scope="col" align="center"><b>Total Price</b></td>
+        <td scope="col" align="center"><b>Remove</b></td>
+    </tr>
+      {% for item in range(length) %}
+      <tr>
+          <td align="center">{{ foodList[item] }}</td>
+          <td align="center">{{ foodPrice[item] }}</td>
+          <td align="center">{{ foodQuantity[item] }}</td>
+          <td align="center">{{ foodTotalPrice[item] }}</td>
+          <form action="http://localhost:5000/remove_items_online_halwaai",method="POST">
+            <td align="center"><button type="submit" class="btn btn-danger" name="information" value="{{ foodList[item] }}">Remove</button></td>
+          </form>
+        </tr>
+      {% endfor %}
+  </table>
+  <div class="bt">
+    <form action="http://localhost:5000/deleteAll_online_halwaai" method="POST">
+      <button class="btn btn-success button" type="submit" >Pay - {{ payment }}</button>
+    </form>
+  </div>
+{% endif %}
+<!--Footer Work Start-->
+<div class="fluid-container footer_background">
+    <footer>
+        <div class="row">
+            <p class="col-sm-12 text-center footer_heading"><strong>Subscribe to your Newsletter</strong></p>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 text-center">
+                <p class="news_offer1"><span class="glyphicon glyphicon-check"></span>Don't miss out on our great offers</p>
+            </div>
+            <div class="col-sm-6 text-center">
+                <p class="news_offer2"><span class="glyphicon glyphicon-check"></span>Receive deals from all our top restaurants via e-mail</p>
+            </div>
+            <div class="col-sm-6 text-center">
+                <div class="mainselection">
+                    <label>
+                        <select class="form-control">
+                            <option>Select your city</option>
+                            <option>Ludhiana</option>
+                            <option>Chandigarh</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <!--<label for="usqwr">-->
+                        <input type="text" class="form-control email_box" id="usr" value="Enter your Email">
+                    <!--</label>-->
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <button class="btn btn-primary btn-lg">Sign Up Now</button>
+            </div>
+        </div>
+    </footer>
+</div>
+<!--Footer Work End-->
+{% endblock %}
